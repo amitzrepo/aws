@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-##############################-KEY_PAIR-##############################
+# KEY PAIR
 resource "tls_private_key" "rsa_key" {
   algorithm = "RSA"
   rsa_bits  = 2048
@@ -22,7 +22,7 @@ resource "local_file" "my_key" {
   filename = "${aws_key_pair.my_keypair.key_name}.pem"
 }
 
-##############################-SECURITY_GROUP-##############################
+# SECURITY_GROUP
 resource "aws_security_group" "my_sg" {
   name        = "MySecurityGroup"
   description = "Allow inbound SSH and HTTP traffic"
@@ -60,7 +60,7 @@ resource "aws_security_group" "my_sg" {
   }
 }
 
-##############################-EC2_INSTANCE-##############################
+# EC2_INSTANCE 
 resource "aws_instance" "ans_engine" {
   ami             = "ami-0449c34f967dbf18a"
   instance_type   = "t2.micro"
