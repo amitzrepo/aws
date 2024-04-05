@@ -7,6 +7,11 @@ terraform {
   }
 }
 
+provider "aws" {
+  region                   = "ap-south-1"
+  shared_credentials_files = ["/home/ubuntu/.aws/credentials"]
+}
+
 # KEY PAIR
 resource "tls_private_key" "rsa_key" {
   algorithm = "RSA"
