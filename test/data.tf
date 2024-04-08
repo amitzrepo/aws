@@ -1,15 +1,12 @@
-data "aws_vpc" "default" {
-    
+resource "aws_default_vpc" "vpc" {
+  tags = {
+    Name = "default"
+  }
 }
 
-data "aws_subnet" "default" {
-    filter {
-      name = "availability-zone"
-      values = [ "ap-south-1a" ]
-    }
-}
 
-data "aws_ami" "linux" {
+
+data "aws_ami" "ami" {
     most_recent = true
     owners      = [ "amazon" ]
 
@@ -17,4 +14,7 @@ data "aws_ami" "linux" {
     name = "name"
     values = [ "*linux*" ]
   }
+}
+data "aws_key_pair" "key" {
+  key_name = "key"  
 }

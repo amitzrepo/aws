@@ -7,3 +7,9 @@ terraform {
   }
 }
 
+resource "region" "region" {
+  region =  "ap-south-1"
+}
+
+
+
